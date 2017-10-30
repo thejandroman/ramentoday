@@ -1,27 +1,61 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="http://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="http://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <style>
+     @keyframes shake {
+       0% { transform: translate(1px, 1px) rotate(0deg); }
+       10% { transform: translate(-1px, -2px) rotate(-1deg); }
+       20% { transform: translate(-3px, 0px) rotate(1deg); }
+       30% { transform: translate(3px, 2px) rotate(0deg); }
+       40% { transform: translate(1px, -1px) rotate(1deg); }
+       50% { transform: translate(-1px, 2px) rotate(-1deg); }
+       60% { transform: translate(-3px, 1px) rotate(0deg); }
+       70% { transform: translate(3px, 1px) rotate(-1deg); }
+       80% { transform: translate(-1px, -1px) rotate(1deg); }
+       90% { transform: translate(1px, 2px) rotate(0deg); }
+       100% { transform: translate(1px, -2px) rotate(-1deg); }
+     }
+
+     .needful {
+       text-align: center;
+     }
+
+     .large.text {
+       font-size: 20rem;
+     }
+    </style>
   </head>
   <body>
-    <h3 class="ui center aligned header">Should I have ramen today?</h3>
-    <div class="ui grid">
-      <div class="five wide column"></div>
-      <div class="six wide column">
-        <div class="ui image">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Twemoji_1f35c.svg/2000px-Twemoji_1f35c.svg.png">
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <h3 class="needful">Should I have ramen today?</h3>
         </div>
-        <div class="ui center aligned basic segment"><p>(click me)</p></div>
       </div>
-      <div class="five wide column"></div>
-      <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-      <script
-        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-        crossorigin="anonymous"></script>
-      <script src="ramen.js"></script>
+
+      <div class="row">
+        <div class="column column-50 column-offset-25">
+          <div id="ramen" class="needful">
+            <span class="large text"><a href="#">🍜</a/></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="zepto.min.js"></script>
+    <script>
+     $('#ramen').on('click tap', function() {
+       $(this)
+         .animate('shake', function() {
+           $(this).fadeOut('slow', function() {
+             $(this).html('<h2>🍜YES!🍜</h1>').fadeIn('fast');
+           });
+         });
+     });
+    </script>
   </body>
 </html>
